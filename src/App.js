@@ -3,6 +3,21 @@ import "./App.css";
 import axios from 'axios'
 import styled from "styled-components"
 import Character from "./components/Character"
+const StyledApp = styled.div`
+  h1{
+    color:red;
+    background-color:white;
+  }
+  .App {
+    background-color:black;
+    align-items: center ;
+    opacity:50%;
+    padding:12%;
+  }
+  .content {
+    border: 6px solid red;
+    background-color: blue;
+  }`
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -22,19 +37,21 @@ const App = () => {
       })
   }, []) 
   return (
-    <div className="App">
-      <h1 className = "Header">Characters</h1>
-      <div className="content">
-      {state.map(character =>{
-                return(
-                  <Character
-                  key = {character.name}
-                  name = {character.name}
-                />
-                )
-            })}
+    <StyledApp>
+      <div className="App">
+        <h1 className = "Header">Characters</h1>
+        <div className="content">
+        {state.map(character =>{
+                  return(
+                    <Character
+                    key = {character.name}
+                    name = {character.name}
+                  />
+                  )
+              })}
+        </div>
       </div>
-    </div>
+    </StyledApp>
   );
 }
 
